@@ -5,18 +5,19 @@ from meetings.models import Meeting
 
 
 def welcome(request):
-    """Welcome page for web app"""
+    """Render a welcome view with a list of meetings scheduled"""
     return render(
         request,
         'website/welcome.html',
-        {"num_meetings": Meeting.objects.count()})
+        {"meetings": Meeting.objects.all()}
+    )
 
 
 def date(request) -> HttpResponse:
-    """"Return HTTP Response with the date"""
+    """"Render HTTP Response with the date"""
     return HttpResponse(f"This page was served at {dt.now()}")
 
 
 def about(request) -> HttpResponse:
-    """Section about us"""
+    """Render a section with information about us"""
     return HttpResponse("Cool python programmer building web app in django")
