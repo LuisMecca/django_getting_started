@@ -11,6 +11,14 @@
       <em>Django: Getting Started</em>
       on <a href="https://www.pluralsight.com"> Pluralsight</a>.
     </p>
-    <p>There are currently {{num_meetings}} meetings in the database</p>
+    <h1>Meetings</h1>
+    <ul>
+      {% for meeting in meetings %}
+      <li>
+        <a href="{% url 'detail' meeting.id %}">{{meeting.title}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'rooms' %}">Rooms</a>
   </body>
 </html>
